@@ -1,21 +1,34 @@
 var _exec = require('child_process');
-var _intervalSeconds = parseInt(process.argv[3]) || 1;
-var _process = process.argv[2].toLowerCase();
+var _interval;
+var _process;
 
-function poll()
+function poll() 
 {
-  var tasklist = _exec.execSync('tasklist').toString('ascii').toLowerCase();
-  var process_exists;
+  if(_process) 
+  {
+    var tasklist = _exec.execSync('tasklist').toString('ascii').toLowerCase();
+    var process_exists;
 
-  if(tasklist.indexOf(_process) > -1) 
-    process_exists = 1;
-  else 
-    process_exists = 0;
+    if(tasklist.indexOf(_process) > -1) 
+      process_exists = 1;
+    else 
+      process_exists = 0;
 
-//  console.log('PARAMS: %s - %d', _process, _intervalSeconds);
-  console.log('PROC_EXISTS %d', process_exists );
+    //console.log('PARAMS: %s - %d', _process, _intervalSeconds);
+    console.log('PROCESS_EXISTS %d', process_exists );
+  }
+  else
+  {
+    //var fs = require('fs');
+    //var file = __dirname + '/param.json';
+    //var configData = JSON.parse(fs.readFileSync(file));
+    var paramData = require('./param.json');
+    _interval = parseInt(paramData.pollInterval);
+    _process = paramData["Process name"].toLowerCase();
+    console.log("Interval: %d\nProcess: %s", _interval, _process)
+  }
 
-  setTimeout(poll, _intervalSeconds * 1000);  // param in milliseonds
+  setTimeout(poll, _interval);  // param in milliseonds
 }
 
 poll();
