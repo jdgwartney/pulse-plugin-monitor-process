@@ -1,6 +1,7 @@
 {
  "description" : "Provides status on a running process",
  "command" : "node index.js",
+ "postExtract" : "npm install ms-task",
  "metrics" : ["PROCESS_EXISTS"],
  "paramSchema" : [
     {

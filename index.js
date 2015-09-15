@@ -6,7 +6,7 @@ function poll()
 {
   if(_process) 
   {
-    var tasklist = _exec.execSync('tasklist').toString('ascii').toLowerCase();
+    var tasklist = _exec.execSync('c:/windows/system32/tasklist.exe').toString('ascii').toLowerCase();
     var process_exists;
 
     if(tasklist.indexOf(_process) > -1) 
@@ -14,14 +14,10 @@ function poll()
     else 
       process_exists = 0;
 
-    //console.log('PARAMS: %s - %d', _process, _intervalSeconds);
     console.log('PROCESS_EXISTS %d', process_exists );
   }
   else
   {
-    //var fs = require('fs');
-    //var file = __dirname + '/param.json';
-    //var configData = JSON.parse(fs.readFileSync(file));
     var paramData = require(__dirname + '/param.json');
     _interval = parseInt(paramData['Poll interval']);
     _process = paramData['Process name'].toLowerCase();
