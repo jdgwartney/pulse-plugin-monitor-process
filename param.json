@@ -1,4 +1,5 @@
 {
-  "Process name" : "POWERPNT.EXE",
-  "Poll interval" : "1000"
+  "Process name":"powerpnt.exe",
+  "Poll interval":"1000",
+  "pollInterval":500
 }
