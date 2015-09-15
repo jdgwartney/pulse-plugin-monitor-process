@@ -23,9 +23,9 @@ function poll()
     //var file = __dirname + '/param.json';
     //var configData = JSON.parse(fs.readFileSync(file));
     var paramData = require('./param.json');
-    _interval = parseInt(paramData.pollInterval);
-    _process = paramData["Process name"].toLowerCase();
-    console.log("Interval: %d\nProcess: %s", _interval, _process)
+    _interval = parseInt(paramData['Poll interval']);
+    _process = paramData['Process name'].toLowerCase();
+    console.log('Interval: %d\nProcess: %s', _interval, _process)
   }
 
   setTimeout(poll, _interval);  // param in milliseonds

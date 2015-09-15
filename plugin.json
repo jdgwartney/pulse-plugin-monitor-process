@@ -1,6 +1,6 @@
 {
  "description" : "Provides status on a running process",
- "command" : "node index.js $(processName) $(pollInterval)",
+ "command" : "node index.js",
  "metrics" : ["PROCESS_EXISTS"],
  "paramSchema" : [
     {
@@ -10,7 +10,7 @@
    	},
    	{
    		"title" : "Poll interval",
-   		"description" : "Poll interval in seconds",
+   		"description" : "Poll interval in milliseconds",
    		"type" : "string"
    	}]
 }
