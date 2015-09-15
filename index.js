@@ -13,7 +13,7 @@ function poll()
     process_exists = 0;
 
 //  console.log('PARAMS: %s - %d', _process, _intervalSeconds);
-  console.log('PROC_EXIST %d', process_exists );
+  console.log('PROC_EXISTS %d', process_exists );
 
   setTimeout(poll, _intervalSeconds * 1000);  // param in milliseonds
 }
