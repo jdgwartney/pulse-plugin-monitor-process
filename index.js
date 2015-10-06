@@ -12,7 +12,7 @@ function poll()
     if(_OSType == 'windows_nt')
       tasklist = _exec.execSync('c:/windows/system32/tasklist.exe').toString('ascii').toLowerCase();
     else
-      tasklist = _exec.execSync('ps -e').toString('ascii').toLowerCase();
+      tasklist = _exec.execSync('ps -ef').toString('ascii').toLowerCase();
 
     var process_exists;
     if(tasklist.indexOf(_process) > -1) 
