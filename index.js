@@ -9,7 +9,7 @@ function poll()
   if(_process) 
   {
     var tasklist;
-    if(_OSType = 'windows_nt')
+    if(_OSType == 'windows_nt')
       tasklist = _exec.execSync('c:/windows/system32/tasklist.exe').toString('ascii').toLowerCase();
     else
       tasklist = _exec.execSync('ps -e').toString('ascii').toLowerCase();
